@@ -41,7 +41,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav mx-auto">
-            <li class="nav-item active px-lg-4">
+            <li class="nav-item px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="{% url 'home' %}">Inicio</a>
             </li>
             <li class="nav-item px-lg-4">
@@ -101,7 +101,31 @@
     <!-- Bootstrap -->
     <script src="{% static 'core/vendor/jquery/jquery.min.js' %}"></script>
     <script src="{% static 'core/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-
+    <script>
+        //Cambia el color de los links del navbar
+        const currentUrl = window.location.pathname;
+        const navItems = document.querySelectorAll('.nav-item');
+        switch (currentUrl) {
+          case '/':
+            navItems[0].classList.add('active');
+            break;
+          case '/about/':
+            navItems[1].classList.add('active');
+            break;
+          case '/services/':
+            navItems[2].classList.add('active');
+            break;
+          case '/store/':
+            navItems[3].classList.add('active');
+            break;
+          case '/contact/':
+            navItems[4].classList.add('active');
+            break;
+          default:
+            navItems[5].classList.add('active');
+            break;
+        }
+    </script>
   </body>
 
 </html>
